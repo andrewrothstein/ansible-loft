@@ -1,0 +1,31 @@
+---
+# defaults file for loft
+loft_ver: v0.3.6
+loft_os: linux
+loft_arch: amd64
+loft_mirror: https://github.com/loft-sh/loft/releases/download
+loft_parent_install_dir: /usr/local
+loft_checksums:
+  v0.3.6:
+    loft:
+      # https://github.com/loft-sh/loft/releases/download/v0.3.6/loft-darwin-amd64.sha256
+      darwin-amd64: sha256:2264cb4d0817a3ec63b285150f5be8ff908cc1c36b3cb4cb16df2377357d204f
+      # https://github.com/loft-sh/loft/releases/download/v0.3.6/loft-linux-386.sha256
+      linux-386: sha256:6b8b3b3ef6d8110d41a8bf7981df2738b84e58892959bf80756f4e1445f0b910
+      # https://github.com/loft-sh/loft/releases/download/v0.3.6/loft-linux-amd64.sha256
+      linux-amd64: sha256:84a26bcad17aa619f873891e78494f97b7e697862821a454a413e806185835e7
+      # https://github.com/loft-sh/loft/releases/download/v0.3.6/loft-windows-386.exe.sha256
+      windows-386: sha256:396659d97c8da9b82d4ab02ef9a6199307461c6190f1ae743fdfa0b37cb54543
+      # https://github.com/loft-sh/loft/releases/download/v0.3.6/loft-windows-amd64.exe.sha256
+      windows-amd64: sha256:eb8827e1c4f22073f26a61841cd8d39b7b50e236a10140cfcacde88d621bfc66
+    loft-devspace-plugin:
+      # https://github.com/loft-sh/loft/releases/download/v0.3.6/loft-devspace-plugin-darwin-amd64.sha256
+      darwin-amd64: sha256:8413cd69f1b33a91fe05afc0a074c7b6153e84a8fc33ca162089734272dccc8b
+      # https://github.com/loft-sh/loft/releases/download/v0.3.6/loft-devspace-plugin-linux-386.sha256
+      linux-386: sha256:3167758c863f77380b3a94c8eed8258cdfdb4a3351d2093c8dc130099e1e9d2b
+      # https://github.com/loft-sh/loft/releases/download/v0.3.6/loft-devspace-plugin-linux-amd64.sha256
+      linux-amd64: sha256:02d04191451f22528fe7a5f2a5ba6c3f3bd0f8d8e6282b863488b9849dc35618
+      # https://github.com/loft-sh/loft/releases/download/v0.3.6/loft-devspace-plugin-windows-386.exe.sha256
+      windows-386: sha256:18b6488a46a39a1ff55a1a73619b923cc1ec6541e6cd4595b55b4b7bb5d3c229
+      # https://github.com/loft-sh/loft/releases/download/v0.3.6/loft-devspace-plugin-windows-amd64.exe.sha256
+      windows-amd64: sha256:9007b87821fe8ab1a2b00b4fe92c776a9f7f5c14302692cbfe758e2823d6703e

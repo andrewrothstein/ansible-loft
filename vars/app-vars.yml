@@ -1,0 +1,6 @@
+---
+loft_exe: '{{ loft_app }}-{{ loft_platform }}{{ loft_dotexe | default("") }}'
+loft_url: '{{ loft_mirror }}/{{ loft_ver }}/{{ loft_exe }}'
+loft_checksum: '{{ loft_checksums[loft_ver][loft_app][loft_platform] }}'
+loft_installed_exe: '{{ loft_install_dir }}/{{ loft_exe }}'
+loft_installed_link: '{{ loft_parent_install_dir }}/bin/{{ loft_app }}'
