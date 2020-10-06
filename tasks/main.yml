@@ -16,9 +16,7 @@
     path: '{{ loft_install_dir }}'
     state: directory
     mode: 0755
-- loop:
-    - loft
-    - loft-devspace-plugin
+- loop: '{{ loft_apps }}'
   loop_control:
     loop_var: loft_app
   include_tasks: install.yml

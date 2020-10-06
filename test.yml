@@ -7,7 +7,3 @@
     register: loft_test_output
   - debug:
       msg: '{{ loft_test_output.stdout }}'
-  - command: /usr/local/bin/loft-devspace-plugin --version
-    register: loft_dsp_test_output
-  - debug:
-      msg: '{{ loft_dsp_test_output.stdout }}'

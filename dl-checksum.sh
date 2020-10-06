@@ -26,13 +26,6 @@ dl_ver() {
     dl loft $ver linux amd64
     dl loft $ver windows 386 .exe
     dl loft $ver windows amd64 .exe
-
-    printf "    %s:\n" loft-devspace-plugin
-    dl loft-devspace-plugin $ver darwin amd64
-    dl loft-devspace-plugin $ver linux 386
-    dl loft-devspace-plugin $ver linux amd64
-    dl loft-devspace-plugin $ver windows 386 .exe
-    dl loft-devspace-plugin $ver windows amd64 .exe
 }
 
-dl_ver ${1:-v0.3.6}
+dl_ver ${1:-v1.1.0}
