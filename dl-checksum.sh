@@ -13,7 +13,7 @@ dl()
     local platform=${os}-${arch}
     local url=$MIRROR/$ver/${app}-${platform}${dotexe}.sha256
     printf "      # %s\n" $url
-    printf "      %s: sha256:%s\n" $platform $(curl -sSL $url | awk '{print $1}')
+    printf "      %s: sha256:%s\n" $platform $(curl -sSLf $url | awk '{print $1}')
 }
 
 dl_ver() {
@@ -22,10 +22,12 @@ dl_ver() {
     printf "  %s:\n" $ver
     printf "    %s:\n" loft
     dl loft $ver darwin amd64
+    dl loft $ver darwin arm64
     dl loft $ver linux 386
     dl loft $ver linux amd64
+    dl loft $ver linux arm64
     dl loft $ver windows 386 .exe
     dl loft $ver windows amd64 .exe
 }
 
-dl_ver ${1:-v1.10.1}
+dl_ver ${1:-v2.1.5}
