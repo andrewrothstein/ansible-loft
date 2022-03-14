@@ -1,6 +1,6 @@
 andrewrothstein.loft
 =========
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-loft.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-loft)
+![Build Status](https://github.com/andrewrothstein/ansible-loft/actions/workflows/build.yml/badge.svg)
 
 Installs the [loft](https://loft.sh) CLI and devspaces plugin
 

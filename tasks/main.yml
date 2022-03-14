@@ -10,7 +10,7 @@
       paths:
         - '{{ role_path }}/vars'
 - name: mkdir {{ loft_install_dir }}
-  become: yes
+  become: true
   become_user: root
   file:
     path: '{{ loft_install_dir }}'
