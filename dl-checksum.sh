@@ -30,4 +30,4 @@ dl_ver() {
     dl loft $ver windows amd64 .exe
 }
 
-dl_ver ${1:-v2.2.2}
+dl_ver ${1:-v2.3.2}

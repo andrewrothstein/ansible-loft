@@ -1,4 +1,6 @@
 ---
 # vars file for loft
+loft_os: '{{ ansible_system | lower }}'
+loft_arch: '{{ loft_arch_map[ansible_architecture] }}'
 loft_platform: '{{ loft_os }}-{{ loft_arch }}'
 loft_install_dir: '{{ loft_parent_install_dir }}/loft-{{ loft_ver }}'
