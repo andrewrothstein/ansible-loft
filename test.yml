@@ -1,9 +1,13 @@
 ---
-- hosts: all
+- name: Testing andrewrothstein.loft
+  hosts: all
   roles:
-  - role: '{{ playbook_dir }}'
+    - role: '{{ playbook_dir }}'
   tasks:
-  - command: /usr/local/bin/loft --version
-    register: loft_test_output
-  - debug:
-      msg: '{{ loft_test_output.stdout }}'
+    - name: Executing 'loft --version'
+      ansible.builtin.command: loft --version
+      changed_when: false
+      register: loft_test_output
+    - name: Output from 'loft --version'
+      ansible.builtin.debug:
+        msg: '{{ loft_test_output.stdout }}'

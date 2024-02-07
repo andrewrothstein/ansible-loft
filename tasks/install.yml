@@ -1,19 +1,19 @@
 ---
-- name: including vars for {{ loft_app }}:{{ loft_ver }}...
-  include_vars:
+- name: Including vars for {{ loft_app }}:{{ loft_ver }}...
+  ansible.builtin.include_vars:
     file: app-vars.yml
-- name: download {{ loft_app }}:{{ loft_ver }} from {{ loft_url }} to {{ loft_install_dir }}...
+- name: Downloading {{ loft_app }}:{{ loft_ver }} from {{ loft_url }} to {{ loft_install_dir }}...
   become: true
   become_user: root
-  get_url:
+  ansible.builtin.get_url:
     url: '{{ loft_url }}'
     dest: '{{ loft_installed_exe }}'
     checksum: '{{ loft_checksum }}'
-    mode: 0755
-- name: link {{ loft_installed_link }} to {{ loft_installed_exe }}
+    mode: '755'
+- name: Link {{ loft_installed_link }} to {{ loft_installed_exe }}
   become: true
   become_user: root
-  file:
+  ansible.builtin.file:
     src: '{{ loft_installed_exe }}'
     dest: '{{ loft_installed_link }}'
     state: link

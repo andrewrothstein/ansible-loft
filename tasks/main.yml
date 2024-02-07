@@ -1,6 +1,6 @@
 ---
-- name: resolve platform specific vars
-  include_vars: '{{ item }}'
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
@@ -9,14 +9,15 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: mkdir {{ loft_install_dir }}
+- name: Mkdir {{ loft_install_dir }}
   become: true
   become_user: root
-  file:
+  ansible.builtin.file:
     path: '{{ loft_install_dir }}'
     state: directory
-    mode: 0755
-- loop: '{{ loft_apps }}'
+    mode: '755'
+- name: Installing loft apps...
+  loop: '{{ loft_apps }}'
   loop_control:
     loop_var: loft_app
-  include_tasks: install.yml
+  ansible.builtin.include_tasks: install.yml
