@@ -1,6 +1,6 @@
 ---
 # defaults file for loft
-loft_ver: v3.4.0
+loft_ver: v3.4.1
 loft_arch_map:
   aarch64: arm64
   arm64: arm64
@@ -337,3 +337,16 @@ loft_checksums:
       linux-arm64: sha256:d36edde9a628859d547e52508d7e2ba6272563f59d938ac86eb618a7d5d733cb
       # https://github.com/loft-sh/loft/releases/download/v3.4.0/loft-windows-amd64.exe
       windows-amd64: sha256:a9e227ae66a04a5fd9ca8b845bd988ff22afdf666b1882e2db6b54d1a7d2e0ac
+  # https://github.com/loft-sh/loft/releases/download/v3.4.1/checksums.txt
+  v3.4.1:
+    loft:
+      # https://github.com/loft-sh/loft/releases/download/v3.4.1/loft-darwin-amd64
+      darwin-amd64: sha256:2d7d148e0d50328d8066c15a75667b08fb5f161cf11a195679c40b4ad57a914f
+      # https://github.com/loft-sh/loft/releases/download/v3.4.1/loft-darwin-arm64
+      darwin-arm64: sha256:1a0c878f6dd6bc4a209964d85e05e51616870330a8bfaf1e05972b72f3935d3c
+      # https://github.com/loft-sh/loft/releases/download/v3.4.1/loft-linux-amd64
+      linux-amd64: sha256:dd503cfc342b486427680a6cd14b75154fc76275e4e581adaa5e17a7757a0f9b
+      # https://github.com/loft-sh/loft/releases/download/v3.4.1/loft-linux-arm64
+      linux-arm64: sha256:377e1b1733f285340527bf52926dafda0fa410f8517732980ab5ece56eaad054
+      # https://github.com/loft-sh/loft/releases/download/v3.4.1/loft-windows-amd64.exe
+      windows-amd64: sha256:f6702b9f690cc738e1b389a14592ba199a6777122da3ee9fd2f978522f3da56c
