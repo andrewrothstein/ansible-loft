@@ -39,4 +39,4 @@ dl_ver() {
     dl loft $lchecksums $ver windows amd64 .exe
 }
 
-dl_ver ${1:-v3.4.2}
+dl_ver ${1:-v3.4.5}
