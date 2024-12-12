@@ -9,15 +9,51 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: Mkdir {{ loft_install_dir }}
+- name: Check for install at {{ loft_exe }}
+  ansible.builtin.stat:
+    path: '{{ loft_exe }}'
+  changed_when: false
+  register: loft_binary
+- name: Downloading and installing loft
+  when: not loft_binary.stat.exists
+  block:
+    - name: Downloading {{ loft_url }} to {{ loft_tmp_archive }}...
+      become: true
+      become_user: root
+      ansible.builtin.get_url:
+        url: '{{ loft_url }}'
+        dest: '{{ loft_tmp_archive }}'
+        checksum: '{{ loft_checksum }}'
+        mode: '644'
+    - name: Mkdir {{ loft_install_dir }}
+      become: true
+      become_user: root
+      ansible.builtin.file:
+        path: '{{ loft_install_dir }}'
+        state: directory
+        mode: '755'
+    - name: Installing andrewrothstein.unarchivedeps
+      ansible.builtin.include_role:
+        name: andrewrothstein.unarchivedeps
+    - name: Unarchiving {{ loft_tmp_archive }} to {{ loft_install_dir }}
+      become: true
+      become_user: root
+      ansible.builtin.unarchive:
+        remote_src: true
+        src: '{{ loft_tmp_archive }}'
+        dest: '{{ loft_install_dir }}'
+        creates: '{{ loft_exe }}'
+  always:
+    - name: Rm -f {{ loft_tmp_archive }}
+      become: true
+      become_user: root
+      ansible.builtin.file:
+        path: '{{ loft_tmp_archive }}'
+        state: absent
+- name: Linking {{ loft_link }} to {{ loft_exe }}
   become: true
   become_user: root
   ansible.builtin.file:
-    path: '{{ loft_install_dir }}'
-    state: directory
-    mode: '755'
-- name: Installing loft apps...
-  loop: '{{ loft_apps }}'
-  loop_control:
-    loop_var: loft_app
-  ansible.builtin.include_tasks: install.yml
+    src: '{{ loft_exe }}'
+    dest: '{{ loft_link }}'
+    state: link

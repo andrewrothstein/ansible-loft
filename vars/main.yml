@@ -2,5 +2,12 @@
 # vars file for loft
 loft_os: '{{ ansible_system | lower }}'
 loft_arch: '{{ loft_arch_map[ansible_architecture] }}'
-loft_platform: '{{ loft_os }}-{{ loft_arch }}'
+loft_platform: '{{ loft_os }}_{{ loft_arch }}'
+loft_archive: 'loft_{{ loft_ver }}_{{ loft_platform }}.{{ loft_archive_type | default("tar.gz") }}'
+loft_tmp_archive: '{{ loft_tmp_dir | default("/tmp") }}/{{ loft_archive }}'
+# https://github.com/loft-sh/loft/releases/download/v4.1.1/loft_4.1.1_linux_amd64.tar.gz
+loft_url: '{{ loft_mirror }}/v{{ loft_ver }}/{{ loft_archive }}'
+loft_checksum: '{{ loft_checksums[loft_ver][loft_platform] }}'
 loft_install_dir: '{{ loft_parent_install_dir }}/loft-{{ loft_ver }}'
+loft_exe: '{{ loft_install_dir }}/loft{{ loft_dotexe | default("") }}'
+loft_link: '{{ loft_parent_install_dir }}/bin/loft{{ loft_dotexe | default("") }}'

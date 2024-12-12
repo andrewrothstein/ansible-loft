@@ -4,10 +4,10 @@
   roles:
     - role: '{{ playbook_dir }}'
   tasks:
-    - name: Executing 'loft --version'
-      ansible.builtin.command: loft --version
+    - name: Executing 'loft -h'
+      ansible.builtin.command: loft -h
       changed_when: false
       register: loft_test_output
-    - name: Output from 'loft --version'
+    - name: Output from 'loft -h'
       ansible.builtin.debug:
         msg: '{{ loft_test_output.stdout }}'
